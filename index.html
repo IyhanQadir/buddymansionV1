@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BuddyMansion | Premium Student Housing by Studiencollege</title>
+  <meta name="description" content="BuddyMansion offers premium, secure, and community-focused student housing for international students. Safe homes near top universities." />
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root{
+      --gold:#D9A441;
+      --brown:#5A4328;
+      --soft:#FFF7E6;
+      --dark:#1c1c1c;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{color:var(--brown);background:#fff;scroll-behavior:smooth}
+    a{text-decoration:none;color:inherit}
+
+    /* NAVBAR */
+    .logo img{
+      width: 5rem;
+    }
+    nav{
+      position:fixed;
+      top:0;left:0;width:100%;
+      z-index:1000;
+      padding:1rem 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+    }
+    .nav-links{
+      display:flex;
+      gap:2rem;
+    }
+    .nav-links a{font-weight:500;position:relative}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:.3s}
+    .nav-links a:hover::after{width:100%}
+
+    /* HAMBURGER DEFAULT (DESKTOP HIDDEN) */
+    .hamburger{
+      display:none;
+      font-size:1.6rem;
+      cursor:pointer;
+    }
+
+    /* MOBILE NAV */
+    @media(max-width:900px){
+      .nav-links{
+        position:absolute;
+        top:100%;left:0;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        padding:2rem;
+        display:none;
+        box-shadow:0 20px 40px rgba(0,0,0,.1);
+      }
+      .nav-links.active{display:flex}
+      .nav-links a{font-size:1.25rem;padding:1rem 0}
+      .hamburger{display:block}
+    }
+
+
+    @media(max-width:900px){
+      .nav-links{
+        position:absolute;
+        top:100%;left:0;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        padding:2rem;
+        display:none;
+        box-shadow:0 20px 40px rgba(0,0,0,.1);
+      }
+      .nav-links.active{display:flex}
+      .nav-links a{font-size:1.25rem;padding:1rem 0}
+      .hamburger{display:block}
+    }
+
+    section{padding:7rem 2rem;position:relative}
+
+    /* FADE */
+    .fade-up{opacity:0;transform:translateY(50px);transition:opacity .9s ease,transform .9s ease}
+    .fade-up.visible{opacity:1;transform:none}
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      transform:translateY(0);
+      will-change:transform;
+    }
+    .hero-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.35));
+    }
+    .hero-content{
+      position:relative;
+      color:#fff;
+      max-width:650px;
+      margin-left:6%;
+    }
+    .hero-content h1{font-size:3.4rem;line-height:1.15}
+    .hero-content p{margin:1.5rem 0;font-size:1.15rem;opacity:.9}
+    .hero-stats{display:flex;gap:2rem;margin:2rem 0;flex-wrap:wrap}
+    .stat strong{display:block;font-size:1.6rem;color:var(--gold)}
+    .cta{background:var(--gold);color:#fff;padding:1rem 2.8rem;border-radius:40px;font-weight:600;display:inline-block}
+
+    /* SPLIT */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:auto}
+    .split img{width:100%;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+
+    /* PROPERTIES */
+    .properties{background:var(--soft)}
+    .property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:1200px;margin:auto}
+    .property{position:relative;height:320px;border-radius:24px;overflow:hidden}
+    .property img{width:100%;height:100%;object-fit:cover}
+    .property::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent)}
+    .property h3{position:absolute;bottom:24px;left:24px;color:#fff;font-size:1.4rem}
+
+    /* AMENITIES */
+    .amenity-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:auto}
+    .amenity{text-align:center}
+    .amenity i{font-size:2.4rem;color:var(--gold);margin-bottom:.8rem}
+
+    /* PROCESS */
+    .process{background:linear-gradient(135deg,#fff,#f9f4ea)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:auto}
+    .step{background:#fff;padding:2.5rem;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      grid-auto-rows:240px;
+      gap:1.5rem;
+      max-width:1200px;
+      margin:auto
+    }
+    .gallery img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:18px
+    }
+    .gallery img:first-child{grid-row:auto}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+    /* .gallery img:first-child{grid-row:1/3} */
+
+    /* CONTACT */
+    .contact{background:linear-gradient(135deg,#1c1c1c,#2a2a2a);color:#fff;text-align:center}
+
+    footer{text-align:center;padding:2rem;background:#fff}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .split,.property-grid,.amenity-row,.steps{grid-template-columns:1fr}
+      .hero-content{margin:0 2rem}
+      .hero-content h1{font-size:2.5rem}
+      .gallery{grid-template-columns:1fr}
+      .gallery img:first-child{grid-row:auto}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><img src="BMlogo.png" alt="BuddyMansion"></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#properties">Properties</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#process">Booking</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Book Now</a>
+  </div>
+  <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg" data-parallax></div>
+  <div class="hero-content fade-up">
+    <h1>More Than Housing.<br>A Place to Belong.</h1>
+    <p>Premium, secure homes for international students—so you can focus on education, not logistics.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>100%</strong>Verified</div>
+      <div class="stat"><strong>24/7</strong>Security</div>
+      <div class="stat"><strong>Global</strong>Community</div>
+    </div>
+    <a class="cta" href="#contact">Book a Virtual Tour</a>
+  </div>
+</section>
+
+<section id="about" class="fade-up">
+  <div class="split">
+    <div>
+      <h2>Built for International Students</h2>
+      <p>BuddyMansion by Studiencollege provides safe, professionally managed housing that helps students transition smoothly into life abroad.</p>
+      <p>Our residences balance privacy, comfort, and community—creating an environment where students can thrive academically and personally.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1455734729978-db1ae4f687fc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3R1ZGVudCUyMGxpZmV8ZW58MHx8MHx8fDA%3D" alt="Student living">
+  </div>
+</section>
+
+<section id="properties" class="properties fade-up">
+  <h2 style="text-align:center;margin-bottom:3rem">Our Locations</h2>
+  <div class="property-grid">
+    <div class="property"><img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=80"><h3>Boston</h3></div>
+    <div class="property"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80"><h3>New York</h3></div>
+    <div class="property"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80"><h3>Chicago</h3></div>
+  </div>
+</section>
+
+<section id="amenities" class="fade-up">
+  <h2 style="text-align:center;margin-bottom:3rem">Everything You Need, Included</h2>
+  <div class="amenity-row">
+    <div class="amenity"><i class="fas fa-wifi"></i><p>High-Speed Wi‑Fi</p></div>
+    <div class="amenity"><i class="fas fa-lock"></i><p>24/7 Security</p></div>
+    <div class="amenity"><i class="fas fa-couch"></i><p>Furnished Rooms</p></div>
+    <div class="amenity"><i class="fas fa-users"></i><p>Community Spaces</p></div>
+  </div>
+</section>
+
+<section id="process" class="process fade-up">
+  <h2 style="text-align:center;margin-bottom:3rem">How Booking Works</h2>
+  <div class="steps">
+    <div class="step"><strong>Explore</strong><p>Browse properties</p></div>
+    <div class="step"><strong>Consult</strong><p>Speak with advisors</p></div>
+    <div class="step"><strong>Confirm</strong><p>Secure your stay</p></div>
+    <div class="step"><strong>Move In</strong><p>Arrive & settle in</p></div>
+  </div>
+</section>
+
+<section id="gallery" class="fade-up">
+  <h2 style="text-align:center;margin-bottom:3rem">Life at BuddyMansion</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1603745675948-ccaa96b1d45f?w=800">
+    <img src="https://images.unsplash.com/photo-1659468550823-3fc043085f40?w=800">
+    <img src="https://images.unsplash.com/photo-1747928272448-49524fcb5cfb?w=800">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800">
+  </div>
+</section>
+
+<section id="contact" class="contact fade-up">
+  <h2>Your Home Abroad Starts Here</h2>
+  <p>Schedule a virtual tour or speak with our housing team today.</p>
+  <a class="cta" href="mailto:connect@studiencollege.com">Book Now</a>
+</section>
+
+<footer>
+  <p>BuddyMansion • A Studiencollege Vertical</p>
+</footer>
+
+<script>
+/* Mobile nav */
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
+
+/* Parallax */
+const parallax=document.querySelector('[data-parallax]');
+window.addEventListener('scroll',()=>{
+  const offset=window.scrollY*0.3;
+  parallax.style.transform=`translateY(${offset}px)`;
+});
+
+/* Fade-in */
+const fades=document.querySelectorAll('.fade-up');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:0.15});
+fades.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

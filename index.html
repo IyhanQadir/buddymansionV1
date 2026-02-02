@@ -64,7 +64,26 @@
     .fade-up.visible{opacity:1;transform:none}
 
     /* HERO */
-    .hero{height:100vh;display:flex;align-items:center;position:relative}
+    .hero{
+  min-height:100vh;
+  padding-top:6rem;
+  padding-bottom:4rem;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+@media (max-width: 900px){
+  .hero{
+    min-height: calc(100vh + 80px);
+  }
+}
+#about{
+  position:relative;
+  z-index:2;
+  background:#fff;
+}
+
     .hero-bg{
       position:absolute;inset:0;
       background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -174,6 +193,7 @@
     <a href="#about">About</a>
     <a href="#properties">Properties</a>
     <a href="#amenities">Amenities</a>
+    <a href="#youth-hostel">Youth Hostel</a>
     <a href="#process">Booking</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Book Now</a>

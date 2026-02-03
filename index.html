@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>BuddyMansion | Affordable Student & Youth Housing by Studiencollege</title>
-  <meta name="description" content="BuddyMansion offers affordable, secure, and community-focused shared accommodation for students and young travelers. Promoting youth hostel culture and cultural exchange." />
+  <title>BuddyMansion | Global Student Living & Community by Studiencollege</title>
+  <meta name="description" content="Buddy Mansion is a global student living, mobility, and experiential learning initiative by Studiencollege. Safe shared living, BuddyMansions, youth hostel culture, and global student communities." />
 
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -22,20 +22,14 @@
     body{color:var(--brown);background:#fff;scroll-behavior:smooth}
     a{text-decoration:none;color:inherit}
 
-    .logo img{width:5rem}
-
     nav{
-      position:fixed;
-      top:0;left:0;width:100%;
-      z-index:1000;
-      padding:1rem 2rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(255,255,255,.88);
-      backdrop-filter:blur(12px);
+      position:fixed;top:0;left:0;width:100%;
+      z-index:1000;padding:1rem 2rem;
+      display:flex;justify-content:space-between;align-items:center;
+      background:rgba(255,255,255,.88);backdrop-filter:blur(12px)
     }
 
+    .logo img{width:5rem}
     .nav-links{display:flex;gap:2rem}
     .nav-links a{font-weight:500;position:relative}
     .nav-links a::after{
@@ -54,36 +48,18 @@
         box-shadow:0 20px 40px rgba(0,0,0,.1)
       }
       .nav-links.active{display:flex}
-      .nav-links a{font-size:1.25rem;padding:1rem 0}
       .hamburger{display:block}
     }
 
     section{padding:7rem 2rem}
-
     .fade-up{opacity:0;transform:translateY(50px);transition:.9s}
     .fade-up.visible{opacity:1;transform:none}
 
     /* HERO */
     .hero{
-  min-height:100vh;
-  padding-top:6rem;
-  padding-bottom:4rem;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-}
-@media (max-width: 900px){
-  .hero{
-    min-height: calc(100vh + 80px);
-  }
-}
-#about{
-  position:relative;
-  z-index:2;
-  background:#fff;
-}
-
+      min-height:100vh;padding-top:6rem;
+      display:flex;align-items:center;position:relative;overflow:hidden
+    }
     .hero-bg{
       position:absolute;inset:0;
       background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -102,6 +78,101 @@
     .hero-stats{display:flex;gap:2rem;margin:2rem 0;flex-wrap:wrap}
     .stat strong{display:block;font-size:1.6rem;color:var(--gold)}
 
+    .bm-carousel{
+  position:relative;
+  max-width:1200px;
+  margin:auto;
+  height:520px;
+  overflow:hidden;
+  border-radius:28px;
+}
+
+.bm-slide{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  opacity:0;
+  transform:scale(1.04);
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+
+.bm-slide.active{
+  opacity:1;
+  transform:scale(1);
+  z-index:2;
+}
+
+.bm-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.bm-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2));
+}
+
+.bm-text{
+  position:relative;
+  z-index:3;
+  padding:3.5rem;
+  color:#fff;
+  max-width:520px;
+}
+
+.bm-text h2,.bm-text h3{
+  font-size:2.4rem;
+  margin-bottom:1rem;
+}
+
+.bm-text p,.bm-text li{
+  font-size:1.05rem;
+  line-height:1.6;
+  opacity:.95;
+}
+
+.bm-text ul{
+  margin-left:1.2rem;
+}
+
+.bm-tagline{
+  font-style:italic;
+  font-size:1.25rem;
+  margin-bottom:1rem;
+  color:#f3d28c;
+}
+
+.bm-badge{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  padding:.35rem .9rem;
+  border-radius:20px;
+  font-size:.8rem;
+  margin-bottom:1rem;
+}
+
+.bm-highlight{
+  font-size:1.4rem;
+  font-weight:500;
+}
+
+@media(max-width:900px){
+  .bm-carousel{height:auto}
+  .bm-slide{
+    grid-template-columns:1fr;
+  }
+  .bm-slide img{
+    position:absolute;
+    inset:0;
+  }
+}
+
+
     .cta{
       background:var(--gold);color:#fff;
       padding:1rem 2.8rem;border-radius:40px;
@@ -111,7 +182,7 @@
     /* SPLIT */
     .split{
       display:grid;grid-template-columns:1fr 1fr;
-      gap:4rem;align-items:center;
+      gap:4rem;align-items:flex-start;
       max-width:1200px;margin:auto
     }
     .split img{
@@ -187,7 +258,7 @@
 <body>
 
 <nav>
-  <div class="logo"><img src="BMlogo.png" alt="BuddyMansion"></div>
+  <div class="logo"><img src="BMlogo.png" alt="Buddy Mansion"></div>
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -205,37 +276,201 @@
 <section id="home" class="hero">
   <div class="hero-bg" data-parallax></div>
   <div class="hero-content fade-up">
-    <h1>More Than Housing.<br>A Place to Belong.</h1>
+    <h1>More Than Housing.<br>A Global Student Home.</h1>
     <p>
-      Affordable, secure shared homes for international students and young travelers—
-      designed for travel, adventure, and cultural exchange.
-      </p>
-      
-      <div class="hero-stats">
-        <div class="stat"><strong>Affordable</strong>Living</div>
-        <div class="stat"><strong>Travel &</strong>Adventure</div>
-        <div class="stat"><strong>Global</strong>Community</div>
-      </div>
-      
+      Buddy Mansion is a student-focused global mobility, community, and experiential
+      living initiative — ensuring accommodation, cultural familiarity, safety, and
+      global exposure for students worldwide.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat"><strong>Shared</strong>Living</div>
+      <div class="stat"><strong>Experiential</strong>Travel</div>
+      <div class="stat"><strong>Global</strong>Community</div>
+    </div>
+
     <a class="cta" href="#contact">Book a Virtual Tour</a>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="fade-up">
-  <div class="split">
-    <div>
-      <h2>Built for International Students</h2>
-      <p>BuddyMansion by Studiencollege provides affordable, professionally managed shared accommodation that helps students and young travelers transition smoothly into life abroad.</p>
-      <p>We promote community living, adaptability, and cultural exchange through youth-hostel-inspired spaces.</p>
+  <div class="bm-carousel">
+
+    <div class="bm-slide active">
+      <div class="bm-text">
+        <h2>Buddy Mansion</h2>
+        <span class="bm-badge">A Standalone Vertical of Student College</span>
+        <p class="bm-tagline">
+          A Global Student Home.<br>A Community Beyond Borders.
+        </p>
+        <p>
+          Buddy Mansion supports students traveling, studying, or exploring across
+          countries by combining accommodation with community, cultural familiarity,
+          safety, and experiential exposure.
+        </p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&auto=format&fit=crop&q=80">
     </div>
-    <img src="https://images.unsplash.com/photo-1455734729978-db1ae4f687fc?w=800&auto=format&fit=crop&q=60">
+
+    <div class="bm-slide">
+      <div class="bm-text">
+        <h3>Our Vision</h3>
+        <p class="bm-highlight">
+          To build a trusted global ecosystem where student travel is safe,
+          inclusive, culturally enriching, and development-oriented.
+        </p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&auto=format&fit=crop&q=80">
+    </div>
+
+    <div class="bm-slide">
+      <div class="bm-text">
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Enable experiential student travel and shared living</li>
+          <li>Foster cultural, linguistic, and community exchange</li>
+          <li>Integrate adventure and mobility-based education</li>
+          <li>Create a global student support community abroad</li>
+          <li>Promote well-being, inclusion, and confidence</li>
+          <li>Encourage responsible travel culture</li>
+        </ul>
+      </div>
+      <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1600&auto=format&fit=crop&q=80">
+    </div>
+
+    <div class="bm-slide">
+      <div class="bm-text">
+        <h3>What is Buddy Mansion?</h3>
+        <p>
+          Buddy Mansion is a global student living and community platform that
+          combines accommodation access, peer support, and experiential learning.
+        </p>
+        <p>
+          Each location — called a <strong>BuddyMansion</strong> — functions as a
+          student hub offering safety, cultural connection, and global exposure.
+        </p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=1600&auto=format&fit=crop&q=80">
+    </div>
+
+    <div class="bm-slide">
+      <div class="bm-text">
+        <h3>BuddyMansion</h3>
+        <p class="bm-tagline">Our Global Living Units</p>
+        <ul>
+          <li>A home-away-from-home for students</li>
+          <li>A cultural and community hub</li>
+          <li>A base for experiential learning and travel</li>
+        </ul>
+      </div>
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&auto=format&fit=crop&q=80">
+    </div>
+
   </div>
 </section>
 
+
+
+<!-- AMENITIES -->
+<section id="amenities" class="fade-up">
+
+  <!-- CORE PILLARS -->
+  <h2 style="text-align:center;margin-bottom:.8rem">Our Core Pillars</h2>
+  <p style="text-align:center;max-width:780px;margin:0 auto 3rem;opacity:.9">
+    The guiding principles that define how Buddy Mansion supports students globally —
+    beyond accommodation.
+  </p>
+
+  <div class="amenity-row" style="margin-bottom:4rem">
+    <div class="amenity">
+      <i class="fas fa-home"></i>
+      <p><strong>Shared Living & Student Accommodation</strong><br>
+      Purpose-driven shared living designed for student growth</p>
+    </div>
+
+    <div class="amenity">
+      <i class="fas fa-globe"></i>
+      <p><strong>Global Student Community</strong><br>
+      Peer networks that foster cultural familiarity and belonging</p>
+    </div>
+
+    <div class="amenity">
+      <i class="fas fa-heart"></i>
+      <p><strong>Well-Being, Safety & Inclusion</strong><br>
+      Emotionally supportive, safe, and inclusive living environments</p>
+    </div>
+
+    <div class="amenity">
+      <i class="fas fa-mountain"></i>
+      <p><strong>Adventure & Experiential Learning</strong><br>
+      Travel, outdoor learning, and real-world exposure beyond classrooms</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- YOUTH HOSTEL -->
+<section id="youth-hostel" class="fade-up">
+  <div class="split">
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=60">
+    <div>
+      <h2>Youth Hostel, Couchsurfing & Cultural Exchange</h2>
+      <p>
+        Buddy Mansion actively promotes youth hostel culture and responsible global
+        travel. Across all BuddyMansions worldwide, one dedicated couch is reserved for
+        international couchsurfing travelers.
+      </p>
+      <p>
+        This initiative encourages cultural exchange between students and global
+        travelers, supports the global youth travel movement, and builds open,
+        welcoming, community-driven spaces.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="amenities"class="fade-up">
+    <!-- LIVING ESSENTIALS -->
+    <h2 style="text-align:center;margin-bottom:.8rem">Living Essentials & In-House Facilities</h2>
+    <p style="text-align:center;max-width:780px;margin:0 auto 3rem;opacity:.9">
+      Practical comforts and facilities available at every Buddy Mansion location.
+    </p>
+  
+    <div class="amenity-row">
+      <div class="amenity">
+        <i class="fas fa-wifi"></i>
+        <p><strong>High-Speed Wi-Fi</strong><br>
+        Seamless connectivity for study, work, and communication</p>
+      </div>
+  
+      <div class="amenity">
+        <i class="fas fa-lock"></i>
+        <p><strong>24/7 Security</strong><br>
+        Monitored access and secure residential environments</p>
+      </div>
+  
+      <div class="amenity">
+        <i class="fas fa-couch"></i>
+        <p><strong>Shared Common Areas</strong><br>
+        Lounges and spaces designed for daily interaction</p>
+      </div>
+  
+      <div class="amenity">
+        <i class="fas fa-users"></i>
+        <p><strong>Community Living</strong><br>
+        Structured shared environments with peer support</p>
+      </div>
+    </div>
+</section>
 <!-- PROPERTIES -->
 <section id="properties" class="properties fade-up">
-  <h2 style="text-align:center;margin-bottom:3rem">Our Locations</h2>
+  <h2 style="text-align:center;margin-bottom:2rem">Our Locations</h2>
+  <p style="max-width:900px;margin:0 auto 3rem;text-align:center">
+    Buddy Mansion has a strong and growing international presence across Europe,
+    with active BuddyMansion and student communities in Spain, Poland, Hungary,
+    Czech Republic, Portugal, Germany, and Italy.
+  </p>
+
   <div class="property-grid">
     <div class="property"><img src="https://images.unsplash.com/photo-1563840111261-8b096fb63b65"><h3>Boston</h3></div>
     <div class="property"><img src="https://images.unsplash.com/photo-1541336032412-2048a678540d"><h3>New York</h3></div>
@@ -243,67 +478,13 @@
   </div>
 </section>
 
-<!-- AMENITIES -->
-<section id="amenities" class="fade-up">
-  <h2 style="text-align:center;margin-bottom:3rem">Everything You Need, Included</h2>
-  <div class="amenity-row">
-    <div class="amenity"><i class="fas fa-wifi"></i><p>High-Speed Wi-Fi</p></div>
-    <div class="amenity"><i class="fas fa-lock"></i><p>24/7 Security</p></div>
-    <div class="amenity"><i class="fas fa-couch"></i><p>Shared Common Areas</p></div>
-    <div class="amenity"><i class="fas fa-users"></i><p>Community Living</p></div>
-  </div>
-</section>
-
-<!-- YOUTH HOSTEL -->
-<section id="youth-hostel" class="fade-up">
-  <div class="split">
-    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=60">
-    <div>
-      <h2>Youth Hostel & Cultural Exchange</h2>
-      <p>
-        BuddyMansion actively promotes youth hostel culture by offering affordable
-        shared accommodation that encourages interaction between students and travelers
-        from different countries.
-      </p>
-      <p>
-        Youth hostel living encourages adventure-led travel, helping young people
-        step out of their comfort zones while building global friendships.
-        </p>
-      <p>
-        Through alignment with the International Youth Hostel Association (IYHA),
-        residents can access a global network of hostels—making travel, cultural exchange,
-        and adaptability a core part of the experience.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" class="process fade-up">
-  <h2 style="text-align:center;margin-bottom:3rem">How Booking Works</h2>
-  <div class="steps">
-    <div class="step"><strong>Explore</strong><p>Browse affordable stays</p></div>
-    <div class="step"><strong>Connect</strong><p>Access youth hostel network</p></div>
-    <div class="step"><strong>Confirm</strong><p>Secure your stay</p></div>
-    <div class="step"><strong>Move In</strong><p>Live, travel & exchange</p></div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="fade-up">
-  <h2 style="text-align:center;margin-bottom:3rem">Life at BuddyMansion</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1603745675948-ccaa96b1d45f?w=800">
-    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGlraW5nfGVufDB8fDB8fHww">
-    <img src="https://images.unsplash.com/photo-1747928272448-49524fcb5cfb?w=800">
-    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800">
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact" class="contact fade-up">
   <h2>Your Home Abroad Starts Here</h2>
-  <p>Affordable living. Shared cultures. Global connections.</p>
+  <p>
+    Buddy Mansion ensures that no student feels alone while exploring the world.
+    Live safely. Connect meaningfully. Learn experientially. Travel responsibly.
+  </p>
   <a class="cta" href="mailto:connect@studiencollege.com">Book Now</a>
 </section>
 
@@ -325,6 +506,17 @@ const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible'))
 },{threshold:0.15});
 document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+const slides = document.querySelectorAll('.bm-slide');
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 4000);
+
+
 </script>
 
 </body>

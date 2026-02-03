@@ -162,15 +162,33 @@
 }
 
 @media(max-width:900px){
-  .bm-carousel{height:auto}
+  .bm-carousel{
+    height:520px;
+  }
+
   .bm-slide{
     grid-template-columns:1fr;
   }
-  .bm-slide img{
-    position:absolute;
-    inset:0;
+
+  .bm-text{
+    padding:2.5rem 2rem;
   }
 }
+@media(max-width:600px){
+  .bm-carousel{
+    height:560px;
+  }
+
+  .bm-text h2,
+  .bm-text h3{
+    font-size:1.8rem;
+  }
+
+  .bm-tagline{
+    font-size:1.1rem;
+  }
+}
+
 
 
     .cta{
@@ -516,6 +534,18 @@ setInterval(() => {
   slides[index].classList.add('active');
 }, 4000);
 
+function resizeCarousel(){
+  const carousel = document.querySelector('.bm-carousel');
+  const activeSlide = document.querySelector('.bm-slide.active');
+  if(activeSlide){
+    carousel.style.height = activeSlide.offsetHeight + 'px';
+  }
+}
+
+window.addEventListener('load', resizeCarousel);
+window.addEventListener('resize', resizeCarousel);
+
+setInterval(resizeCarousel, 4000);
 
 </script>
 

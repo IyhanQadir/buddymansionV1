@@ -70,7 +70,7 @@
     }
     .hero-content{
       position:relative;color:#fff;
-      max-width:650px;margin-left:6%
+      max-width:650px;margin-left:6%;margin-top: 5%;
     }
     .hero-content h1{font-size:3.4rem}
     .hero-content p{margin:1.5rem 0;font-size:1.15rem;opacity:.9}
@@ -266,7 +266,7 @@
 
     @media(max-width:900px){
       .split,.property-grid,.amenity-row,.steps{grid-template-columns:1fr}
-      .hero-content{margin:0 2rem}
+      .hero-content{margin:1rem 2rem}
       .hero-content h1{font-size:2.5rem}
       .gallery{grid-template-columns:1fr}
     }
@@ -283,8 +283,6 @@
     <a href="#properties">Properties</a>
     <a href="#amenities">Amenities</a>
     <a href="#youth-hostel">Youth Hostel</a>
-    <a href="#process">Booking</a>
-    <a href="#gallery">Gallery</a>
     <a href="#contact">Book Now</a>
   </div>
   <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
@@ -541,6 +539,20 @@ function resizeCarousel(){
     carousel.style.height = activeSlide.offsetHeight + 'px';
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navLinks');
+  const navItems = navMenu.querySelectorAll('a');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 900 && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
+    });
+  });
+});
 
 window.addEventListener('load', resizeCarousel);
 window.addEventListener('resize', resizeCarousel);
